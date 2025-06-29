@@ -1,0 +1,8 @@
+Jenkins-password: cab114ca27ab44c89f17dfeedbad74cf
+sonarqube:
+username: admin
+password: admin
+
+GitLab:
+username: root
+password: OV0BrLo60L0I4ZKEhcPtZuY7VtNqsGSH2qTg1YvGZeY=

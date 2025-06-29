@@ -1,0 +1,31 @@
+I need you to give me a hand with something (later we arrange a PLUS of $$$ in the month. When I get back from vacation we'll see about that haha).
+I need you to install the following applications on the following servers:
+
+ Server 1: Jenkins (CI/CD Orchestrator) -- 192.168.0.1
+ Server 2: SonarQube + Gitleaks + OWASP Dependency-Check (Review of
+static code and dependency scanning) -- 192.168.0.3
+
+ Server 3: GitLab (Source code repository and repository manager) -- 192.168.0.2
+ Server 4: Newman + JMeter + Cypress
+-- 192.168.0.11
+
+(Respect the order for the installation).
+
+All applications have to be deployed in docker (depending on what i request to the customer docker should already be installed).
+
+As this is a client environment, please be very careful in the deployment.
+
+Can you help me? I will share the VPN access with you.
+
+this is the instruction for the configuration of the vpn.
+
+username:ateitis
+password:Ateitis.2025
+
+these are the credentials for the vpn and also for the virtual's machines
+
+you also ll need to have this route
+route -p add 192.168.0.0 mask 255.255.255.240 172.16.10.217 metric 1
+
+
+

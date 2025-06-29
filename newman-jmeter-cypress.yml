@@ -1,0 +1,20 @@
+version: '3'
+services:
+  newman:
+    image: postman/newman
+    container_name: newman
+    entrypoint: ["sleep", "infinity"]
+
+  jmeter:
+    image: justb4/jmeter
+    container_name: jmeter
+    entrypoint: ["sleep", "infinity"]
+
+  cypress:
+    image: cypress/included:12.17.4
+    container_name: cypress
+    working_dir: /e2e
+    volumes:
+      - ./e2e:/e2e
+    entrypoint: ["sleep", "infinity"]
+
