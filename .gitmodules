@@ -1,0 +1,3 @@
+[submodule "test-project"]
+	path = test-project
+	url = http://gitlab.local/root/test-project.git
