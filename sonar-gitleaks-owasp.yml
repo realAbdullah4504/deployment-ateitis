@@ -12,15 +12,15 @@ services:
       - sonarqube_extensions:/opt/sonarqube/extensions
     restart: unless-stopped
 
-  gitleaks:
-    image: zricethezav/gitleaks
-    container_name: gitleaks
-    entrypoint: ["sleep", "infinity"]
+  # gitleaks:
+  #   image: zricethezav/gitleaks
+  #   container_name: gitleaks
+  #   entrypoint: ["sleep", "infinity"]
 
-  dependency-check:
-    image: owasp/dependency-check
-    container_name: dependency-check
-    entrypoint: ["sleep", "infinity"]
+  # dependency-check:
+  #   image: owasp/dependency-check
+  #   container_name: dependency-check
+  #   entrypoint: ["sleep", "infinity"]
 
 volumes:
   sonarqube_data:
