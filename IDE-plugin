@@ -1,0 +1,24 @@
+Development IDE Plugin Configuration Guide
+This document outlines the configuration steps for SonarLint and Snyk plugins within development IDEs (IntelliJ, PyCharm, VS Code). These tools enable early security validation before any code is pushed or merged.
+1. SonarLint Configuration
+Objective: Detect security issues and code quality problems in real-time during development.
+Steps:
+•	Install SonarLint from the IDE plugin marketplace (IntelliJ, PyCharm, or VS Code).
+•	Go to SonarLint > Settings > Connected Mode > Add Connection.
+•	Choose 'SonarQube' and enter the server URL (e.g., http://192.168.0.3:9000) and access token from your SonarQube account.
+•	Bind your local project to the corresponding SonarQube project.
+•	Ensure the project is assigned to the 'Sonar way + DevSecOps Security' quality profile (create another quality profile with the same configuration that you created after, but another quality profile).
+•	Enable strict mode: Show only issues from the connected SonarQube instance.
+2. Snyk Plugin Configuration
+Objective: Detect vulnerabilities in third-party dependencies (SCA) from within the IDE.
+Steps:
+•	Install the Snyk plugin from the IDE marketplace.
+•	Log in with the account or token. Use 'devsecops@ateitiscorp.com' if shared.
+•	Enable auto-scan on file changes in plugin settings.
+•	Ensure analysis includes package files (e.g., package.json, pom.xml, requirements.txt).
+•	Configure the plugin to display or highlight only high/critical vulnerabilities.
+3. Merge Request Blocking Policy (Recommended)
+Although IDEs do not block merge requests directly, you can implement the following:
+•	Create a local Git pre-commit hook that validates there are no open issues in SonarLint/Snyk.
+•	Enforce a GitLab CI check that fails the pipeline if security findings are detected.
+•	Establish an internal policy that prohibits submitting a merge request with unresolved plugin warnings.
