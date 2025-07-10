@@ -2,5 +2,8 @@
     "sonarlint.connectedMode.project": {
         "connectionId": "http-192-168-0-3-9000-",
         "projectKey": "test-project"
+    },
+    "yaml.schemas": {
+        "https://www.schemastore.org/pre-commit-config.json": "file:///d%3A/vs_projects/freelancing/cale_project/deployment/test-project/.pre-commit-config.yaml"
     }
 }

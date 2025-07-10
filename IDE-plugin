@@ -22,3 +22,34 @@ Although IDEs do not block merge requests directly, you can implement the follow
 •	Create a local Git pre-commit hook that validates there are no open issues in SonarLint/Snyk.
 •	Enforce a GitLab CI check that fails the pipeline if security findings are detected.
 •	Establish an internal policy that prohibits submitting a merge request with unresolved plugin warnings.
+
+
+What I mean is that before a developer submits a Merge Request, we need to ensure that the code has already been evaluated inside their IDE using the SonarLint and Snyk plugins. These tools allow developers to identify and address critical and high-risk issues early, while they are coding.
+
+Developers should not submit the merge request if:
+
+    There are unresolved critical or high issues reported by SonarLint or Snyk,
+    unless those issues are clearly justified.
+
+✔ A justification could include:
+
+    A false positive (properly documented).
+
+    A business requirement that makes mitigation impossible (with clear explanation).
+
+    The presence of a compensating control that reduces the risk (e.g., input validation, isolation, etc.).
+
+    A ticket created for future remediation (with a valid ID linked to the issue).
+
+In those cases, the developer can add a comment or tag in the IDE or directly in the Merge Request description to indicate the justification.
+
+Since most PCs are domain-joined, we can explore options to standardize the installation and configuration of these plugins, or at least enforce this check as a prerequisite before code can be merged.
+
+Let me know if you'd like support to define this rule formally or help enforce it in the workflow.
+
+Why do I also want to validate security aspects here? Because I want the developer to know at the moment that it does not comply with security best practices, and that it is mandatory to give it some treatment before making the first merge request.
+
+The flow will be the following:
+1- The developer at the moment he is coding, the IDE (by means of the plugins) is already telling him that it is safe or not. It will only let him make the first merge request (otherwise it will fail) if the vulnerabilities detected by the sonarlint and snyk plugins are taken care of (it refers to put them as false positive, mitigate them or justify them in some way).
+2- Once the first stage is passed, the validation of the “Test” folder will be done (this is what we already did in git).
+3- Once that happens, security checks are made from the jenkins side (also already configured).
