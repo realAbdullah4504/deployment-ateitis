@@ -1,0 +1,12 @@
+The next thing we have to do is to create in Jenkins a new Freestyle project, called:
+
+Cierre de etapa "Build" - Subir reportes generales - Etapa 10
+
+This job has to be called only if it finishes correctly the Etapa 9, 
+and it has to have the ability to upload to the GIT inside the folder 
+“Tests” --> “YYYYY-MM-DD” --> “Build Reports”, all the reports done from JOB - Etapa 7 up to and 
+including JOB - Etapa 9.  It is important that at the moment of uploading these reports, 
+I change some kind of status in Git (I don't know if I should create another branch or what...but 
+as you recommend it is ok).
+
+Don't forget to document everything!
